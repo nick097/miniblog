@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,10 +7,33 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> {% block title %} {% endblock %}</title>
+    <title> {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'mainapp/css/main.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css.">
+
 </head>
   <body>
-    {% block content %}
-    {% endblock %}
+      <aside>
+        <img class="logo1" src="{% static 'mainapp/img/logo.svg'%}" alt="logo">
+        <span class="logo">Dychakivsky</span>
+        <h3>Навигация</h3>
+        <ul>
+          <a href="{% url 'home' %}"><li><i class="fa-regular fa-house"></i>Главная</li></a>
+          <a href="{% url 'about' %}"><li><i class="fa-solid fa-list-check"></i>Про нас</li></a>
+          <a href=""><li><i class="fa-solid fa-phone-flip"></i>Контаты</li></a>
+        </ul>
+
+      </aside>
+      <main>
+        {% block content %}
+        {% endblock %}
+      </main>
+
+    
   </body>
 </html>
+
+
+
+
